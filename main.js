@@ -9,13 +9,26 @@ $(document).ready(function() {
     $('form').on('submit',function(e){
         e.preventDefault();
         const novaTarefa=$('#nome-tarefa-nova').val();
-        const novoItem=$('<li style="display:none"></li>');
-        $(`<img src="./imagens/circle.png" title="circle" style="width:35px"/>`).appendTo(novoItem);
-        $(`<h2>${novaTarefa}</h2>`).appendTo(novoItem);
-        $(`<button type="reset"><img id="botao-apagar" src="./imagens/lixeira.png" title="apagar tarefa"/></button> `).appendTo(novoItem);
-        $(novoItem).appendTo('ul');
-        $(novoItem).fadeIn(2500);
+        const novoItem=$('<div id="corpo-da-lista" style="display:none"></div>');
+        $(`<div class="icone"><img src="./imagens/circle.png" title="circle"/></div>`).appendTo(novoItem);
+        $(`<div class="tarefa"><h2>${novaTarefa}</h2></div>`).appendTo(novoItem);
+        $(`<div class="botao"><button  type="reset"><img id="botao-apagar" src="./imagens/lixeira.png" title="apagar tarefa"/></button></div>`).appendTo(novoItem);
+        $(novoItem).appendTo('main');
+        $(novoItem).fadeIn(1000);
         $('#nome-tarefa-nova').val('');
+        $('main button img').click(function(){
+            $(novoItem).slideUp('main');
+        });
+
+        $(novoItem).click(function(e){
+        e.preventDefault();
+        $(novoItem).val('');
+        $(`<div id="corpo-da-lista" style="background-color:gray"></div>`).appendTo(novoItem);
+        $(`<div class="icone"><img src="./imagens/check.png" title="circle"/></div>`).appendTo(novoItem);
+        $(`<div><h2 style="text-decoration:line-through">${novaTarefa}</h2></div>`).appendTo(novoItem);
+        $(novoItem).appendTo('main');
+        })
+       
     })
 });
 
