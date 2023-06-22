@@ -21,13 +21,13 @@ $(document).ready(function() {
         });
 
         $(novoItem).click(function(e){
-        e.preventDefault();
-        $(novoItem).val('');
-        $(`<div id="corpo-da-lista" style="background-color:gray"></div>`).appendTo(novoItem);
-        $(`<div class="icone"><img src="./imagens/check.png" title="circle"/></div>`).appendTo(novoItem);
-        $(`<div><h2 style="text-decoration:line-through">${novaTarefa}</h2></div>`).appendTo(novoItem);
-        $(novoItem).appendTo('main');
-        })
+            e.preventDefault();
+            $(novoItem).val('');
+            $(`<div id="corpo-da-lista" style="background-color:gray"></div>`).appendTo(novoItem);
+            $(`<div class="icone"><img src="./imagens/check.png" title="circle"/></div>`).appendTo(novoItem);
+            $(`<div><h2 style="text-decoration:line-through">${novaTarefa}</h2></div>`).appendTo(novoItem);
+            $(novoItem).appendTo('main');
+            })
        
     })
 });
